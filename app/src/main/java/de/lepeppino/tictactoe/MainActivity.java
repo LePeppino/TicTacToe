@@ -47,38 +47,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.field_11:
                 f11.setText(xo);
+                f11.setEnabled(false);
                 handleInput(1, 1);
                 break;
             case R.id.field_21:
                 f21.setText(xo);
+                f21.setEnabled(false);
                 handleInput(2, 1);
                 break;
             case R.id.field_31:
                 f31.setText(xo);
+                f31.setEnabled(false);
                 handleInput(3, 1);
                 break;
             case R.id.field_12:
                 f12.setText(xo);
+                f12.setEnabled(false);
                 handleInput(1, 2);
                 break;
             case R.id.field_22:
                 f22.setText(xo);
+                f22.setEnabled(false);
                 handleInput(2, 2);
                 break;
             case R.id.field_32:
                 f32.setText(xo);
+                f32.setEnabled(false);
                 handleInput(3, 2);
                 break;
             case R.id.field_13:
                 f13.setText(xo);
+                f13.setEnabled(false);
                 handleInput(1, 3);
                 break;
             case R.id.field_23:
                 f23.setText(xo);
+                f23.setEnabled(false);
                 handleInput(2, 3);
                 break;
             case R.id.field_33:
                 f33.setText(xo);
+                f33.setEnabled(false);
                 handleInput(3, 3);
                 break;
         }
