@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button f11, f21, f31, f12, f22, f32, f13, f23, f33;
     String xo = "X";
     int[][] gameStorage;
-    private boolean gameTied = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
