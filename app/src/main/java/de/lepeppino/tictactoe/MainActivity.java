@@ -95,34 +95,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 xo = "X";
             }
         }
-        if(checkGameEnd()){
+        if(checkGameTied()){
+            Toast.makeText(getApplicationContext(), "Unentschieden!", Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            this.finish();
+        }else if(checkGameEnd()){
             finishGame();
         }
     }
 
+    private boolean checkGameTied(){
+        return !checkGameEnd()
+                && gameStorage[0][0] != 0
+                && gameStorage[0][1] != 0
+                && gameStorage[0][2] != 0
+                && gameStorage[1][0] != 0
+                && gameStorage[1][1] != 0
+                && gameStorage[1][2] != 0
+                && gameStorage[2][0] != 0
+                && gameStorage[2][1] != 0
+                && gameStorage[2][2] != 0;
+    }
     private boolean checkGameEnd(){
-        if(Math.abs(gameStorage[0][0] + gameStorage[0][1] + gameStorage[0][2])
-                + Math.abs(gameStorage[1][0] + gameStorage[1][1] + gameStorage[1][2])
-                + Math.abs(gameStorage[2][0] + gameStorage[2][1] + gameStorage[2][2]) == 9){
-            this.gameTied = true;
-            return true;
-        } else {
-            return  //Win
-                    (Math.abs(gameStorage[0][0] + gameStorage[0][1] + gameStorage[0][2]) == 3
-                            || Math.abs(gameStorage[1][0] + gameStorage[1][1] + gameStorage[1][2]) == 3
-                            || Math.abs(gameStorage[2][0] + gameStorage[2][1] + gameStorage[2][2]) == 3
-                            || Math.abs(gameStorage[0][0] + gameStorage[1][0] + gameStorage[2][0]) == 3
-                            || Math.abs(gameStorage[0][1] + gameStorage[1][1] + gameStorage[2][1]) == 3
-                            || Math.abs(gameStorage[0][2] + gameStorage[1][2] + gameStorage[2][2]) == 3
-                            || Math.abs(gameStorage[0][0] + gameStorage[1][1] + gameStorage[2][2]) == 3
-                            || Math.abs(gameStorage[0][2] + gameStorage[1][1] + gameStorage[2][0]) == 3);
-        }
+        return  (Math.abs(gameStorage[0][0] + gameStorage[0][1] + gameStorage[0][2]) == 3
+                    || Math.abs(gameStorage[1][0] + gameStorage[1][1] + gameStorage[1][2]) == 3
+                    || Math.abs(gameStorage[2][0] + gameStorage[2][1] + gameStorage[2][2]) == 3
+                    || Math.abs(gameStorage[0][0] + gameStorage[1][0] + gameStorage[2][0]) == 3
+                    || Math.abs(gameStorage[0][1] + gameStorage[1][1] + gameStorage[2][1]) == 3
+                    || Math.abs(gameStorage[0][2] + gameStorage[1][2] + gameStorage[2][2]) == 3
+                    || Math.abs(gameStorage[0][0] + gameStorage[1][1] + gameStorage[2][2]) == 3
+                    || Math.abs(gameStorage[0][2] + gameStorage[1][1] + gameStorage[2][0]) == 3);
     }
 
     private void finishGame(){
-        if(gameTied){
-            Toast.makeText(getApplicationContext(), "Unentschieden!", Toast.LENGTH_LONG).show();
-        } else if (xo.equals("X")) {
+        if (xo.equals("X")) {
             Toast.makeText(getApplicationContext(), "O gewinnt!", Toast.LENGTH_LONG).show();
         } else{
             Toast.makeText(getApplicationContext(), "X gewinnt!", Toast.LENGTH_LONG).show();
